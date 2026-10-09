@@ -1,0 +1,51 @@
+# This release shares the schemas and admission webhook of external-secrets.
+# It only reconciles namespaced Argo CD resources; do not run post_renderer.py.
+installCRDs: false
+replicaCount: 1
+image:
+  tag: v2.12.0
+revisionHistoryLimit: 3
+leaderElect: false
+leaderElectionID: external-secrets-argocd-controller
+scopedNamespace: argocd
+scopedRBAC: true
+serviceAccount:
+  create: true
+  name: external-secrets-argocd
+  annotations: {}
+rbac:
+  create: true
+  leaderElection:
+    create: false
+  serviceAccountTokenCreate: false
+  servicebindings:
+    create: false
+  aggregateToView: false
+  aggregateToEdit: false
+  aggregateToAdmin: false
+systemAuthDelegator: false
+processClusterStore: false
+processClusterExternalSecret: false
+processClusterPushSecret: false
+processClusterGenerator: false
+processPushSecret: false
+crds:
+  createClusterExternalSecret: false
+  createClusterSecretStore: false
+  createClusterGenerator: false
+  createClusterPushSecret: false
+  createPushSecret: false
+  conversion:
+    enabled: false
+resources:
+  requests: { cpu: 50m, memory: 128Mi }
+  limits: { cpu: 250m, memory: 256Mi }
+extraEnv:
+  - name: AWS_REGION
+    value: ap-northeast-2
+  - name: AWS_STS_REGIONAL_ENDPOINTS
+    value: regional
+webhook:
+  create: false
+certController:
+  create: false

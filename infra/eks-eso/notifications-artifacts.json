@@ -1,0 +1,8 @@
+{
+  "repository": "Crystal-SBHackathon2026/gitops",
+  "revision": "8a18be46b565c03c2baebcfe0446e732aced7110",
+  "files": {
+    "secretstore.yaml": "8b18114e35504e9e4814040d4ada5fbf98ec35394286ccbcfdda2784f49d29ed",
+    "externalsecret.yaml": "13483a027aaca387af52385d4034dfe218c6c85fba2ae98cb28e6e25d709145a"
+  }
+}

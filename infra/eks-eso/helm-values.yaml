@@ -1,0 +1,52 @@
+replicaCount: 1
+image:
+  tag: v2.12.0
+revisionHistoryLimit: 3
+scopedNamespace: platform
+scopedRBAC: true
+serviceAccount:
+  create: true
+  name: external-secrets
+  annotations: {}
+rbac:
+  serviceAccountTokenCreate: false
+  servicebindings:
+    create: false
+  aggregateToView: false
+  aggregateToEdit: false
+  aggregateToAdmin: false
+processClusterStore: false
+processClusterExternalSecret: false
+processClusterPushSecret: false
+processClusterGenerator: false
+processPushSecret: false
+crds:
+  createClusterExternalSecret: false
+  createClusterSecretStore: false
+  createClusterGenerator: false
+  createClusterPushSecret: false
+  createPushSecret: false
+resources:
+  requests: { cpu: 50m, memory: 128Mi }
+  limits: { cpu: 250m, memory: 256Mi }
+extraEnv:
+  - name: AWS_REGION
+    value: ap-northeast-2
+  - name: AWS_STS_REGIONAL_ENDPOINTS
+    value: regional
+webhook:
+  replicaCount: 1
+  image:
+    tag: v2.12.0
+  revisionHistoryLimit: 3
+  resources:
+    requests: { cpu: 25m, memory: 64Mi }
+    limits: { cpu: 100m, memory: 128Mi }
+certController:
+  replicaCount: 1
+  image:
+    tag: v2.12.0
+  revisionHistoryLimit: 3
+  resources:
+    requests: { cpu: 25m, memory: 64Mi }
+    limits: { cpu: 100m, memory: 128Mi }

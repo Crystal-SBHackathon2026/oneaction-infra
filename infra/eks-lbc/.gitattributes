@@ -1,0 +1,2 @@
+# Preserve upstream bytes for the pinned SHA256 on Windows checkouts.
+iam-policy-v3.6.0.json -text

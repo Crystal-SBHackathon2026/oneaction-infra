@@ -1,0 +1,6 @@
+{
+  "chartVersion": "2.12.0",
+  "operatorVersion": "v2.12.0",
+  "chartUrl": "https://charts.external-secrets.io/external-secrets-2.12.0.tgz",
+  "chartSha256": "4b584136b7311c0af8c8719d377cc5b1a7ef12c2de18f1fdb30614eab75bdeb3"
+}

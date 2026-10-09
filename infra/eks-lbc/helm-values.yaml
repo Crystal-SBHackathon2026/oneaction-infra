@@ -1,0 +1,29 @@
+replicaCount: 2
+image:
+  tag: v3.6.0
+serviceAccount:
+  create: true
+  name: aws-load-balancer-controller
+resources:
+  requests:
+    cpu: 50m
+    memory: 128Mi
+  limits:
+    cpu: 250m
+    memory: 256Mi
+defaultTargetType: ip
+defaultTags:
+  Project: oneaction
+  Owner: hyeyeon.kim
+  Env: dev
+enableShield: false
+enableWaf: false
+enableWafv2: false
+# No Gateway API is in scope, so no additional Gateway CRDs are needed.
+controllerConfig:
+  featureGates:
+    ALBGatewayAPI: false
+    NLBGatewayAPI: false
+enableServiceMutatorWebhook: false
+# Retain the existing serving certificate on repeated Helm renders/upgrades.
+keepTLSSecret: true
